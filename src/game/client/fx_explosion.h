@@ -11,6 +11,7 @@
 #pragma once
 #endif
 
+#include "particle_parse.h"
 #include "particle_collision.h"
 #include "glow_overlay.h"
 
