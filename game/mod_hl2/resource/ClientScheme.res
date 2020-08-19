@@ -632,7 +632,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"  "HalfLife2"
+				"name"  "Verdana"
 				"tall"			"32"
 				"tall_hidef"	"46"
 				"weight" "0"

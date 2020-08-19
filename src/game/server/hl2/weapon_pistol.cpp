@@ -36,7 +36,7 @@ ConVar	pistol_use_new_accuracy( "pistol_use_new_accuracy", "1" );
 class CWeaponPistol : public CBaseHLCombatWeapon
 {
 	DECLARE_DATADESC();
-
+private: 	void ToggleFlash( void );
 public:
 	DECLARE_CLASS( CWeaponPistol, CBaseHLCombatWeapon );
 
@@ -49,6 +49,7 @@ public:
 	void	ItemPreFrame( void );
 	void	ItemBusyFrame( void );
 	void	PrimaryAttack( void );
+	void	SecondaryAttack( void );
 	void	AddViewKick( void );
 	void	DryFire( void );
 	void	Operator_HandleAnimEvent( animevent_t *pEvent, CBaseCombatCharacter *pOperator );
@@ -255,6 +256,38 @@ void CWeaponPistol::PrimaryAttack( void )
 
 	m_iPrimaryAttacks++;
 	gamestats->Event_WeaponFired( pOwner, true, GetClassname() );
+}
+
+//-----------------------------------------------------------------------------
+// Purpose: Tells function ToggleFlash to toggle's the flashlight
+//-----------------------------------------------------------------------------
+void CWeaponPistol::SecondaryAttack(void)
+{
+	CBasePlayer *pPlayer = ToBasePlayer(GetOwner());
+
+	if (pPlayer->m_afButtonPressed & IN_ATTACK2)
+	{
+		ToggleFlash();
+	}
+}
+
+//-----------------------------------------------------------------------------
+// Purpose: Toggles the flashlight
+//-----------------------------------------------------------------------------
+void CWeaponPistol::ToggleFlash(void)
+{
+	CBasePlayer *pPlayer = ToBasePlayer(GetOwner());
+
+	if (pPlayer == NULL)
+		return;
+	if (pPlayer->FlashlightIsOn())
+	{
+		pPlayer->FlashlightTurnOff();
+	}
+	else
+	{
+		pPlayer->FlashlightTurnOn();
+	}
 }
 
 //-----------------------------------------------------------------------------
