@@ -213,6 +213,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <Library Include="..\..\lib\public\bitmap.lib" />
+    <Library Include="..\..\lib\public\discord-rpc.lib" />
     <Library Include="..\..\lib\public\mathlib.lib" />
     <Library Include="..\..\lib\public\raytrace.lib" />
     <Library Include="..\..\lib\public\tier0.lib" />

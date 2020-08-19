@@ -1,9 +1,9 @@
 "GameInfo"
 {
-	game 		"My First HL2 Mod"
-	title 		"HALF-LIFE'"
+	game 		"AVGDP"
+	title 		"AVGDP"
 	title2		""
-	supportsvr	1
+	supportsvr	0
 
 	type		singleplayer_only
 
