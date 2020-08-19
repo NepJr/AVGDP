@@ -1,4 +1,4 @@
-# Super Metroid HD
+# Advanced Video Game Design Projeft (AVGDP)
 This Readme will go over the directories
 
 /src
