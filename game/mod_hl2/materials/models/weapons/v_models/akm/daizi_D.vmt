@@ -1,0 +1,15 @@
+VertexLitGeneric
+{
+$baseTexture "models/weapons/v_models/akm/daizi_D"
+$bumpmap  "models/weapons/v_models/akm/daizi_N"
+$normalmapalphaenvmapmask "1"
+$phong "1"
+$phongboost "1"
+$phongfresnelranges "[.1 .1 .1]"
+$phongexponent "80"
+$phongalbedotint "1"
+$envmaptint "[0.1 0.1 0.1]"
+$nocull "1"
+$halflambert "1"
+
+}

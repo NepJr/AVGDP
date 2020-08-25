@@ -1278,6 +1278,7 @@ void CHLClient::Shutdown( void )
 	ShutdownFbx();
 #endif
 	
+	Discord_Shutdown();
 	// This call disconnects the VGui libraries which we rely on later in the shutdown path, so don't do it
 //	DisconnectTier3Libraries( );
 	DisconnectTier2Libraries( );
@@ -1689,7 +1690,19 @@ void CHLClient::LevelInitPreEntity( char const* pMapName )
 		}
 	}
 #endif
+	// Discord RPC
+	if (!g_bTextMode)
+	{
+		DiscordRichPresence discordPresence;
+		memset(&discordPresence, 0, sizeof(discordPresence));
 
+		char buffer[256];
+		discordPresence.state = "In-Game";
+		sprintf(buffer, "Map: %s", pMapName);
+		discordPresence.details = buffer;
+		discordPresence.largeImageKey = "ModImageHere";
+		Discord_UpdatePresence(&discordPresence);
+	}
 	// Check low violence settings for this map
 	g_RagdollLVManager.SetLowViolence( pMapName );
 
@@ -1780,6 +1793,19 @@ void CHLClient::LevelShutdown( void )
 	StopAllRumbleEffects();
 
 	gHUD.LevelShutdown();
+
+	// Discord RPC
+	if (!g_bTextMode)
+	{
+		DiscordRichPresence discordPresence;
+		memset(&discordPresence, 0, sizeof(discordPresence));
+
+		discordPresence.state = "In-Game";
+		discordPresence.details = "Main Menu";
+		discordPresence.startTimestamp = startTimestamp;
+		discordPresence.largeImageKey = "ModImageHere";
+		Discord_UpdatePresence(&discordPresence);
+	}
 
 	internalCenterPrint->Clear();
 

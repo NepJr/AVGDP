@@ -1,0 +1,14 @@
+"vertexlitgeneric"
+{
+	"$basetexture" "models\weapons\v_models\smg_p90\DC_BC"
+	"$bumpmap" "models\weapons\v_models\smg_p90\DC_N"
+$normalmapalphaenvmapmask "1"
+$phong "1"
+$phongboost "1"
+$phongfresnelranges "[.5 .8 .9]"
+$phongexponent "100"
+$envmaptint "[0.1 0.1 0.1]"
+$nocull "1"
+$halflambert "1"
+
+}
